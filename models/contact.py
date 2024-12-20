@@ -13,3 +13,9 @@ class Contact:
             )
         """)
         db.conn.commit()
+
+    @classmethod
+    def delete_contact(cls, contact_id):
+        db = Database()
+        db.cursor.execute("DELETE FROM contacts WHERE id = ?", (contact_id,))
+        db.conn.commit()
